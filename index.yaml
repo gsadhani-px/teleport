@@ -16,6 +16,6 @@ entries:
     - Teleport
     name: teleport-cluster
     urls:
-    - https://github.com/gsadhani-px/teleport/teleport-cluster-14.0.0-dev.tgz
+    - https://gsadhani-px.github.io/teleport/teleport-cluster-14.0.0-dev.tgz
     version: 14.0.0-dev
 generated: "2023-06-26T22:32:14.784158+05:30"

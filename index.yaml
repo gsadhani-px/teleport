@@ -2,20 +2,20 @@ apiVersion: v1
 entries:
   teleport-cluster:
   - apiVersion: v2
-    appVersion: 14.0.0-dev
-    created: "2023-06-26T22:32:14.788517+05:30"
+    appVersion: 14.0.0
+    created: "2023-06-26T23:01:48.259989+05:30"
     dependencies:
     - condition: installCRDs,operator.enabled
       name: teleport-operator
       repository: ""
-      version: 14.0.0-dev
+      version: 14.0.0
     description: Teleport is an access platform for your infrastructure
-    digest: 0ad7e3ee92603cb0401065f57f153f39e7739464ad0d764cc8ee6a8321c3b466
+    digest: d2edd0e9c11425b4461791f60ea7f909504a495e3503306771f136ccc56ce436
     icon: https://goteleport.com/images/logos/logo-teleport-square.svg
     keywords:
     - Teleport
     name: teleport-cluster
     urls:
-    - https://gsadhani-px.github.io/teleport/teleport-cluster-14.0.0-dev.tgz
-    version: 14.0.0-dev
-generated: "2023-06-26T22:32:14.784158+05:30"
+    - https://gsadhani-px.github.io/teleport/teleport-cluster-14.0.0.tgz
+    version: 14.0.0
+generated: "2023-06-26T23:01:48.256022+05:30"

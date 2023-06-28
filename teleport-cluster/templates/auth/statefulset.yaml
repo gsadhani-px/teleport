@@ -111,7 +111,7 @@ spec:
             name: "config"
             readOnly: true
           - mountPath: /var/lib/teleport
-            name: "data"
+            name: {{ .Release.Name }}-auth
     {{- if $auth.extraVolumeMounts }}
       {{- toYaml $auth.extraVolumeMounts | nindent 10 }}
     {{- end }}
@@ -210,7 +210,7 @@ spec:
           name: "config"
           readOnly: true
         - mountPath: /var/lib/teleport
-          name: "data"
+          name: {{ .Release.Name }}-auth
 {{- if $auth.extraVolumeMounts }}
   {{- toYaml $auth.extraVolumeMounts | nindent 8 }}
 {{- end }}
@@ -239,7 +239,7 @@ spec:
           name: "config"
           readOnly: true
         - mountPath: /var/lib/teleport
-          name: "data"
+          name: {{ .Release.Name }}-auth
 {{ end }}
       volumes:
 {{- if $auth.enterprise }}
@@ -260,15 +260,6 @@ spec:
       - name: "config"
         configMap:
           name: {{ .Release.Name }}-auth
-      - name: "data"
-        {{- if (not $auth.persistence.enabled) }}
-          {{- fail "Cannot set persistence.enabled=false when resourceType is statefulset; volumes are required in this mode" }}
-        {{- end }}
-        {{- if $auth.persistence.existingClaimName }}
-          {{- fail "Cannot set persistence.existingClaimName when resourceType is statefulset; volumes must be provisioned dynamically on a per-pod basis in this mode" }}
-        {{- end }}
-        persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-auth
 {{- if $auth.extraVolumes }}
   {{- toYaml $auth.extraVolumes | nindent 6 }}
 {{- end }}
